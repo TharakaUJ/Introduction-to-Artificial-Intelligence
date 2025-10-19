@@ -1,0 +1,3 @@
+I think we cannot model the partially observable wumpus world, because we cannot specicify the the places of wumpus and pit in probelm.pddl
+
+But if we know the places of stench and breeze, if we could include that in the problem.pddl we can model the partially obeservable wumpus world. But knowing the breezes and stench makes the problem already deterministic. So We will have evidence to think that we cannot model partially observable wumpus world in pddl.

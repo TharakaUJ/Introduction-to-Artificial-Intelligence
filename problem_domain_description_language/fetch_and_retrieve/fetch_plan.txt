@@ -1,0 +1,7 @@
+(move rooma roomb)
+(move roomb roomc)
+(move roomc roomd)
+(pickup treat1 roomd)
+(move roomd roomc)
+(move roomc roomb)
+(move roomb rooma)
