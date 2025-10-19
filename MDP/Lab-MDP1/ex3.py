@@ -88,7 +88,9 @@ while(delta > delta_thresh):
 
                 value = value_9 * 0.9 + value_05 * 0.05 + value_05b * 0.05
 
-                print(f"Row: {row} Col: {col} Direction: {direction} Value: {value}")
+                # uncomment to list action values
+                # print(f"Row: {row} Col: {col} Direction: {direction} Value: {value}")
+                
 
                 if value > newWorld[row][col]:
                     policy[row][col] = direction
