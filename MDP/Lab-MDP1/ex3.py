@@ -4,10 +4,10 @@ World = [
 ]
 
 directions = {
-    "north": [0, 1],
-    "east": [1, 0],
-    "south": [0, -1],
-    "west": [-1, 0],
+    "north": [-1, 0],
+    "east": [0, 1],
+    "south": [1, 0],
+    "west": [0, -1],
     "nothing": [0,0]
 }
 
@@ -43,6 +43,7 @@ iteration = 0
 while(delta > delta_thresh):
 
     newWorld = [[-10,-10,-10],[-10,-10,-10]]
+    policy = [[None,None,None],[None,None,None]]
     iteration += 1
 
     for row in range(2):
@@ -86,12 +87,20 @@ while(delta > delta_thresh):
                     value_05b += gamma * World[next_row_05b][next_col_05b]
 
                 value = value_9 * 0.9 + value_05 * 0.05 + value_05b * 0.05
-                newWorld[row][col] = max(newWorld[row][col], value)
+
+                if value > newWorld[row][col]:
+                    policy[row][col] = direction
+                    newWorld[row][col] = value
 
     delta = max(abs(newWorld[row][col] - World[row][col]) for row in range(2) for col in range(3))
     World = newWorld
 
+    print("World/utility:")
     for row in World:
         print([round(elem, 3) for elem in row])
+
+    print("Policy:")
+    for row in policy:
+        print([elem for elem in row])
 
     print("Iterations:", iteration, " Delta:", round(delta, 6), "\n")
