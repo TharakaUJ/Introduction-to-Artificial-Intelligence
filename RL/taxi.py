@@ -7,7 +7,7 @@ alpha = 0.1  # Learning rate
 gamma = 0.6  # Discount factor
 epsilon = 0.1  # Exploration rate
 
-env = gym.make("Taxi-v3")
+env = gym.make("Taxi-v3", render_mode="human")
 
 def choose_action(state, epsilon):
     """Epsilon-greedy action selection"""
